@@ -1,4 +1,5 @@
 const responses = {
+    "Hola buenas tardes":"!Hola gracias por ponerte en contacto con nosotros. Recibimos tu mensaje y agradecemos tu interés",
     "qué es el comité de ingeniería de sistemas": "El comité de ingeniería de sistemas es un grupo de estudiantes y profesores que se encarga de implementar mejoras para el desarrollo de la carrera, organizar eventos académicos y apoyar a los estudiantes en su formación profesional.",
     "qué eventos organiza el comité": "El comité organiza una variedad de eventos, incluyendo conferencias, talleres, hackathons, y ferias de empleo. Estos eventos están diseñados para complementar la formación académica y brindar oportunidades de networking y desarrollo profesional.",
     "cómo puedo solicitar una asesoría académica": "Puedes solicitar una asesoría académica enviando un correo electrónico a comite_asesorias@ejemplo.com con tu nombre, número de estudiante y el tema en el que necesitas ayuda. También puedes asistir a nuestras sesiones de asesoría en los horarios establecidos.",
