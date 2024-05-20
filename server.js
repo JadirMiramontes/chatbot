@@ -1,6 +1,7 @@
 const express = require('express');
 const http = require('http');
 const socketIo = require('socket.io');
+const responses = require('./responses'); // Importa las respuestas predefinidas
 
 const app = express();
 const server = http.createServer(app);
@@ -10,11 +11,19 @@ app.use(express.static('public'));
 
 io.on('connection', (socket) => {
     console.log('A user connected');
-    
+
     socket.on('chat message', (msg) => {
         console.log('Message: ' + msg);
-        // Aquí puedes añadir lógica para responder al mensaje
-        socket.emit('chat message', 'TecBot: ' + msg);
+
+        // Lógica para respuestas predefinidas
+        let response = "Lo siento, no entiendo tu pregunta.";
+        Object.keys(responses).forEach((key) => {
+            if (msg.toLowerCase().includes(key)) {
+                response = responses[key];
+            }
+        });
+
+        socket.emit('chat message', 'TecBot: ' + response);
     });
 
     socket.on('disconnect', () => {
