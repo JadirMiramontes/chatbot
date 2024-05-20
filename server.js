@@ -34,7 +34,7 @@ io.on('connection', (socket) => {
             }
         });
 
-        socket.emit('chat message', 'Bot: ' + response);
+        socket.emit('chat message', 'TecBot: ' + response);
     });
 
     socket.on('disconnect', () => {
