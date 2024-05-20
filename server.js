@@ -9,21 +9,32 @@ const io = socketIo(server);
 
 app.use(express.static('public'));
 
+// Función de normalización
+function normalizeString(str) {
+    str = str.toLowerCase();
+    str = str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    str = str.replace(/[^a-zA-Z0-9\s]/g, "");
+    return str;
+}
+
 io.on('connection', (socket) => {
     console.log('A user connected');
 
     socket.on('chat message', (msg) => {
         console.log('Message: ' + msg);
 
+        // Normalizar el mensaje entrante
+        let normalizedMsg = normalizeString(msg);
+
         // Lógica para respuestas predefinidas
         let response = "Lo siento, no entiendo tu pregunta.";
         Object.keys(responses).forEach((key) => {
-            if (msg.toLowerCase().includes(key)) {
+            if (normalizedMsg.includes(normalizeString(key))) {
                 response = responses[key];
             }
         });
 
-        socket.emit('chat message', 'TecBot: ' + response);
+        socket.emit('chat message', 'Bot: ' + response);
     });
 
     socket.on('disconnect', () => {
