@@ -9,28 +9,25 @@ const io = socketIo(server);
 
 app.use(express.static('public'));
 
-// Función de normalización
-function normalizeString(str) {
-    str = str.toLowerCase();
-    str = str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-    str = str.replace(/[^a-zA-Z0-9\s]/g, "");
-    return str;
+function normalizeText(text) {
+    return text
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, ""); // Elimina los acentos
 }
 
 io.on('connection', (socket) => {
     console.log('A user connected');
 
     socket.on('chat message', (msg) => {
-        console.log('Message: ' + msg);
-
-        // Normalizar el mensaje entrante
-        let normalizedMsg = normalizeString(msg);
+        const normalizedMsg = normalizeText(msg);
+        console.log('Message: ' + normalizedMsg);
 
         // Lógica para respuestas predefinidas
-        let response = "Lo siento, no entiendo tu pregunta.";
+        let response = "Lo siento, no entiendo tu pregunta.\n"; // Agrega salto de línea
         Object.keys(responses).forEach((key) => {
-            if (normalizedMsg.includes(normalizeString(key))) {
-                response = responses[key];
+            if (normalizedMsg.includes(normalizeText(key))) {
+                response = responses[key] + "\n"; // Agrega salto de línea
             }
         });
 
