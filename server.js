@@ -32,6 +32,7 @@ io.on('connection', (socket) => {
         });
 
         socket.emit('chat message', 'TecBot: ' + response);
+        response = responses[key] + "\n"; // Agrega salto de línea
     });
 
     socket.on('disconnect', () => {
