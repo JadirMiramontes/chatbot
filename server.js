@@ -14,7 +14,7 @@ io.on('connection', (socket) => {
     socket.on('chat message', (msg) => {
         console.log('Message: ' + msg);
         // Aquí puedes añadir lógica para responder al mensaje
-        socket.emit('chat message', 'Bot: ' + msg);
+        socket.emit('chat message', 'TecBot: ' + msg);
     });
 
     socket.on('disconnect', () => {
