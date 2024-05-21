@@ -1,0 +1,5 @@
+ /* Estilos básicos para el chat */
+ body { font-family: Arial, sans-serif; }
+ .chat-container { width: 400px; margin: auto; border: 1px solid #ccc; padding: 10px; }
+ .chat-messages { height: 200px; overflow-y: scroll; border: 1px solid #ccc; margin-bottom: 10px; }
+ .chat-input { width: calc(100% - 20px); padding: 10px; }
