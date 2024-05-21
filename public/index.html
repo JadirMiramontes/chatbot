@@ -3,11 +3,13 @@
 
 <head>
     <title>Chatbot</title>
-    <link rel="stylesheet" href="index.css">
     <style>
         /* Estilos básicos para el chat */
         body {
             font-family: Arial, sans-serif;
+            /* Ejemplo de color de fondo gris claro */
+background-color: #f0f0f0;
+
         }
 
         .chat-container {
@@ -15,6 +17,8 @@
             margin: auto;
             border: 1px solid #ccc;
             padding: 10px;
+            background-color: #fff;
+            border-radius: 3%;
         }
 
         .chat-messages {
@@ -28,10 +32,19 @@
             width: calc(100% - 20px);
             padding: 10px;
         }
+        h1{
+            text-align: center;
+            color: #000;
+        }
     </style>
 </head>
 
 <body>
+    <script>alert('al concluir tu pregunta presiona ENTER')</script>
+    <div class="container">
+        <img class="top-left-image" src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Logo-TecNM-2017.png" alt="Top Left Image">
+    </div>
+    <h1>TecBot</h1>
     <div class="chat-container">
         <div id="messages" class="chat-messages"></div>
         <input id="messageInput" class="chat-input" placeholder="Type a message..." />
@@ -55,6 +68,7 @@
             messageItem.textContent = msg;
             messages.appendChild(messageItem);
             messages.scrollTop = messages.scrollHeight;
+            
         });
     </script>
 </body>
