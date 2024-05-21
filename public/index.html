@@ -36,6 +36,30 @@ background-color: #f0f0f0;
             text-align: center;
             color: #000;
         }
+        .container {
+    position: relative;
+    width: 100%; /* Adjust the width as needed */
+}
+.top-left-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20%; /* Adjust the width as needed */
+    height: auto; /* Adjust the height as needed */
+}
+.logo {
+    width: 120%;
+        height: auto;
+        filter: blur(2px); /* Adjust the blur value as needed */
+        opacity: 0.5; /* Adjust the opacity value as needed */
+}
+.logocontainer{
+    position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: -1;
+}
     </style>
 </head>
 
@@ -43,6 +67,9 @@ background-color: #f0f0f0;
     <script>alert('al concluir tu pregunta presiona ENTER')</script>
     <div class="container">
         <img class="top-left-image" src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Logo-TecNM-2017.png" alt="Top Left Image">
+    </div>
+    <div class="logocontainer">
+        <img class="logo" src="https://www.delicias.tecnm.mx/img/logotipos/logotipos/itDelicias.png" alt="logo">
     </div>
     <h1>TecBot</h1>
     <div class="chat-container">
